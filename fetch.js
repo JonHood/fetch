@@ -438,7 +438,10 @@
       xhr.onerror = function() {
         reject(new TypeError('Network request failed'))
       }
-
+      
+      if (init.timeout) {
+        xhr.timeout = init.timeout;
+      }
       xhr.ontimeout = function() {
         reject(new TypeError('Network request failed'))
       }
